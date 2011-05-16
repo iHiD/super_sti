@@ -43,8 +43,10 @@ describe "Extra data models" do
   it "can write associations" do
     pending "Figure this out"
     @bank_account.attributes = @valid_bank_account_attributes
-    @bank_account.bank = @bank
-    @bank_account.save!
+    lambda{
+      @bank_account.bank = @bank
+      @bank_account.save!
+    }.should_not raise_error
   end
   
 end
