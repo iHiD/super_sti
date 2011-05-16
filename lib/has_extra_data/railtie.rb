@@ -1,5 +1,5 @@
-require 'has_extra_data'
 require 'rails'
+require 'has_extra_data'
 
 module HasExtraData
   class Railtie < Rails::Railtie
