@@ -1,0 +1,3 @@
+module HasExtraData
+  # Your code goes here...
+end
