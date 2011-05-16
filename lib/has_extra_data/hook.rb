@@ -6,7 +6,7 @@ module HasExtraData
       klass = Class.new(ActiveRecord::Base) do
         set_table_name(table_name)
       end
-      klass.class_eval &block
+      klass.class_eval &block if block_given?
       self.const_set "Data", klass
 
       has_one :data, :class_name => "#{self.name}::Data"
