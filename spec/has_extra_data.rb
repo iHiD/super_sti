@@ -49,4 +49,8 @@ describe "Extra data models" do
     }.should_not raise_error
   end
   
+  it "can have any table name" do
+    SillyAccount.create!
+  end
+  
 end

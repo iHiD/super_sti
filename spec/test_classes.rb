@@ -18,6 +18,10 @@ class CreditCard < Account
   has_extra_data
 end
 
+class SillyAccount < Account
+  has_extra_data :table_name => "silly_table_name" 
+end
+
 class Bank < ActiveRecord::Base
   has_one :bank_account
 end

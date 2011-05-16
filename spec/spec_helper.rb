@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table :banks do |t|
     t.string :name, :null => false
   end
+  
+  create_table :silly_table_name do |t|
+    t.integer :silly_account_id, :null => false
+  end
 end
 
 require 'test_classes'
