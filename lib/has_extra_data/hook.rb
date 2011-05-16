@@ -1,5 +1,18 @@
 module HasExtraData
   module Hook
+    
+    ######
+    # has_extra_data(options = {})
+    #
+    # In it's most raw form, this method creates an associated Data class, 
+    # which seamlessly adds attributes and methods to the main class
+    #
+    # If passed a block, extra attributes can be set on the data table, 
+    # methods (e.g. has_many) can be called, and other methods can be defined.
+    #
+    # Options:
+    #   table_name: The table name of the class
+    #####
     def has_extra_data(options = {}, &block)
 
       table_name = options[:table_name] || "#{self.name.underscore.gsub("/", "_")}_data"
