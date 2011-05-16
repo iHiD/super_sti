@@ -6,7 +6,7 @@ require 'active_record'
 
 $:.unshift File.dirname(__FILE__) + '/../lib'
 
-# This isn't working so I have to use the second line...
+# Thie first line isn't working so I have added the second...
 require File.dirname(__FILE__) + '/../lib/has_extra_data'
 ActiveRecord::Base.send(:extend, HasExtraData::Hook)
  
