@@ -1,0 +1,1 @@
+Adds an add_extra_data method to ActiveRecord that invisibly includes an extra data table. Use with STI to keep your database clean.
