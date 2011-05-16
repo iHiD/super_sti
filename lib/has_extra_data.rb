@@ -1,4 +1,5 @@
 require 'active_support/core_ext'
+require File.join(File.dirname(__FILE__), "has_extra_data/hook.rb")
 require File.join(File.dirname(__FILE__), "has_extra_data/railtie.rb")
 
 #module HasExtraData
