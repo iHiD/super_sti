@@ -26,8 +26,8 @@ Usage:
     end
 
     Car.each do |car|
-      puts car.first.colour
-      puts car.first.is_sporty?
+      puts car.colour
+      puts car.is_sporty?
     end
 
 Classes:
