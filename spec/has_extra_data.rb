@@ -25,6 +25,13 @@ describe "Extra data models" do
     @bank_account.save!
     @bank_account.data.id.should_not == 0
   end
+
+  it "can read attributes" do
+    @bank_account.attributes = @valid_bank_account_attributes
+    @bank_account.save!
+    @bank_account = BankAccount.find(@bank_account.id)
+    @bank_account.account_number.should == "12345678"
+  end
   
   it "can read associations" do
     @bank_account.attributes = @valid_bank_account_attributes
