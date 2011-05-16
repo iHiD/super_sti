@@ -7,16 +7,16 @@ module HasExtraData
       
         set_table_name(table_name)
         
-        def self.parent_klass=(klass)
-          @parent_klass = klass
-        end
+        #def self.parent_klass=(klass)
+        #  @parent_klass = klass
+        #end
 
         def self.belongs_to(sym, *args)
           super(sym, *args)
           #@parent_klass.has_one sym, :through => :data
         end
       end
-      klass.parent_klass = self
+      #klass.parent_klass = self
       klass.class_eval &block if block_given?
       self.const_set "Data", klass
   
