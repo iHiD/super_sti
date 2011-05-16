@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["jez.walker@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{Ruby Rails - Add extra data to SDI models with clean database tables.}
-  s.description = %q{Adds an add_extra_data method to ActiveRecord that invisibly includes an extra data table. Use with STI to keep your database clean.}
+  s.description = %q{Adds an add_extra_data method to ActiveRecord that invisibly includes an extra data table. Means you can use STI but keep your database clean.}
 
   s.add_dependency "rails"
   s.add_development_dependency "rspec-rails"
