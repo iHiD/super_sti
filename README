@@ -1,17 +1,17 @@
 Adds an add_extra_data method to ActiveRecord that invisibly includes an extra data table. Use with STI to keep your database clean. It removes the need to have lots of nullable columns.
 
 Usage
------
+---------
 Use in Rails 3 app. Add to bundler:
 gem "has_extra_data"
 
 Tests
-------
+---------
 Uses rspec for testing.
 Run tests with rspec spec/*
 
 Todo
-----
+---------
 * Automatically load extra data class with main class.
 * Automatically load associations in main class.
 * Automatically pass attributes through to main class.
