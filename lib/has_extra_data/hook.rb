@@ -2,7 +2,7 @@ module HasExtraData
   module Hook
     def has_extra_data(&block)
 
-      table_name = "#{self.name.underscore}_data"
+      table_name = "#{self.name.underscore.gsub("/", "_")}_data"
       klass = Class.new(ActiveRecord::Base) do
         set_table_name(table_name)
       end
