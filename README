@@ -45,4 +45,6 @@ end
 
 Todo
 ----
-Automatically pass attributes through.
+* Automatically load extra data class with main class.
+* Automatically load associations in main class.
+* Automatically pass attributes through to main class.
