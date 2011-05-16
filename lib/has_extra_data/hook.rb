@@ -1,5 +1,5 @@
 module HasExtraData
-  class Hook
+  module Hook
     def has_extra_data(&block)
 
       table_name = "#{self.name.underscore}_data"
