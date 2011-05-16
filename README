@@ -21,42 +21,42 @@ Example
 
 Usage:
 
-Vehicle.each do |vehicle|
-  puts vehicle.colour
-end
+    Vehicle.each do |vehicle|
+      puts vehicle.colour
+    end
 
-Car.each do |car|
-  puts car.first.colour
-  puts car.first.is_sporty?
-end
+    Car.each do |car|
+      puts car.first.colour
+      puts car.first.is_sporty?
+    end
 
 Classes:
 
-class Vehicle < ActiveRecord::Base
-  validates :model, :presence => :true
-  validates :colour, :presence => :true
-end
+    class Vehicle < ActiveRecord::Base
+      validates :model, :presence => :true
+      validates :colour, :presence => :true
+    end
 
-class Motorbike < Product
-end
+    class Motorbike < Product
+    end
 
-class Lorry < Product
-end
+    class Lorry < Product
+    end
 
-class Car < Product
-  has_extra_data
-  validates :is_sporty, :in => [true, false]
-end
+    class Car < Product
+      has_extra_data
+      validates :is_sporty, :in => [true, false]
+    end
 
 Database Schema:
 
-create_table :drinks do |t|
-  t.string :type, :null => false
-  t.string :model, :null => false
-  t.string :colour, :null => false
-end 
+    create_table :drinks do |t|
+      t.string :type, :null => false
+      t.string :model, :null => false
+      t.string :colour, :null => false
+    end 
 
-create_table :car_data do |t|
-  t.integer :coke_id, :null => false # Foreign key here...
-  t.boolean :is_sporty, :null => false
-end
+    create_table :car_data do |t|
+      t.integer :coke_id, :null => false # Foreign key here...
+      t.boolean :is_sporty, :null => false
+    end
