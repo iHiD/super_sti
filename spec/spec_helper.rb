@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(:version => 1) do
 
   create_table :banks do |t|
     t.string :name, :null => false
-    t.string :credit_card_number, :null => false
-    t.date :expiry_date, :null => false
   end
 end
 
