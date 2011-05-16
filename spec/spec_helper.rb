@@ -17,10 +17,17 @@ $stdout = StringIO.new
 
 ActiveRecord::Base.logger
 ActiveRecord::Schema.define(:version => 1) do
-  create_table :test_classes do |t|
+  create_table :accounts do |t|
+    t.float :balance
   end
   
-  create_table :test_class_data do |t|
-    t.integer :test_class_id, :null => false
+  create_table :bank_account_data do |t|
+    t.integer :bank_account_id, :null => false
+  end
+
+  create_table :credit_card_data do |t|
+    t.integer :credit_card_id, :null => false
   end
 end
+
+require 'test_classes'
