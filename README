@@ -27,7 +27,7 @@ Usage:
 
     BankAccount.each do |bank_account|
       puts bank_account.balance
-      puts bank_account.bank_account.name
+      puts bank_account.bank.name
     end
 
 Classes:
