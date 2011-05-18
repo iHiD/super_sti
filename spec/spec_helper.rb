@@ -38,8 +38,12 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string :name, :null => false
   end
   
-  create_table :silly_table_name do |t|
-    t.integer :silly_account_id, :null => false
+  create_table :unusual_table_name do |t|
+    t.integer :unusual_table_name_id, :null => false
+  end
+
+  create_table :unusual_foreign_key_data do |t|
+    t.integer :unusual_foreign_key, :null => false
   end
 end
 

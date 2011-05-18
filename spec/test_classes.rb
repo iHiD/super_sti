@@ -18,8 +18,12 @@ class CreditCard < Account
   has_extra_data
 end
 
-class SillyAccount < Account
-  has_extra_data :table_name => "silly_table_name" 
+class UnusualForeignKey < Account
+  has_extra_data :foreign_key => "unusual_foreign_key"
+end
+
+class UnusualTableName < Account
+  has_extra_data :table_name => "unusual_table_name"
 end
 
 class Bank < ActiveRecord::Base

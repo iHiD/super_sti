@@ -40,8 +40,14 @@ describe "Extra data models" do
     @bank_account.bank.should == @bank
   end
   
+  it "can have a specifc foreign_key" do
+    obj = UnusualForeignKey.create!
+    obj.data.should_not be_nil
+  end
+  
   it "can have any table name" do
-    SillyAccount.create!
+    obj = UnusualTableName.create!
+    obj.data.should_not be_nil
   end
   
 end
