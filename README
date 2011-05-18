@@ -1,9 +1,9 @@
-Adds an add_extra_data method to ActiveRecord that invisibly includes an extra data table. Use with STI to keep your database clean. It removes the need to have lots of nullable columns.
+Adds an has_extra_data method to ActiveRecord that invisibly includes an extra data table. Use with STI to keep your database clean. It removes the need to have lots of nullable columns.
 
 Usage
 ---------
 Use in Rails 3 app. Add to bundler:
-gem "has_extra_data"
+gem "super_sti"
 
 Tests
 ---------
