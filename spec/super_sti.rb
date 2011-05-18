@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Extra data models" do
+describe "Super STI models with has_extra_data models" do
   
   before :each do 
     @bank = Bank.create!(:name => "My Bank")

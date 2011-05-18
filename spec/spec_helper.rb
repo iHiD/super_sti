@@ -7,8 +7,8 @@ require 'active_record'
 $:.unshift File.dirname(__FILE__) + '/../lib'
 
 # Thie first line isn't working so I have added the second...
-require File.dirname(__FILE__) + '/../lib/has_extra_data'
-ActiveRecord::Base.send(:extend, HasExtraData::Hook)
+require File.dirname(__FILE__) + '/../lib/super_sti'
+ActiveRecord::Base.send(:extend, SuperSTI::Hook)
  
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
  
