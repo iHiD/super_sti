@@ -50,4 +50,27 @@ describe "Super STI models with has_extra_data models" do
     obj.data.should_not be_nil
   end
   
+  it "does not break scoped" do
+    ba1 = BasicAccount.create!(:is_approved => true)
+    ba2 = BasicAccount.create!(:is_approved => false)
+    ba1.is_approved?.should == true
+    ba2.is_approved?.should == false
+    BasicAccount.approved.count.should == 1
+  end
+  
+  it "saves data on updates" do
+    # Setup normal bank account
+    @bank_account.attributes = @valid_bank_account_attributes
+    @bank_account.save!
+    @bank_account.account_number.should == "12345678"
+    
+    # Update attribute
+    @bank_account.account_number = "87654321"
+    @bank_account.save!
+    
+    # Check the database has been updated
+    BankAccount.find(@bank_account.id).account_number.should == "87654321"
+  end
+  
+  
 end

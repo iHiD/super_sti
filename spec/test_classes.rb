@@ -1,11 +1,18 @@
 class Account < ActiveRecord::Base
-  before_create :set_initial_balance
+  before_create :set_defaults
+  
+  scope :approved, where(:is_approved => true)
   
 private
-  def set_initial_balance
-    self.balance = 0
+  def set_defaults
+    self.balance = 0 unless balance
+    self.is_approved = 0 unless is_approved
     true
   end
+end
+
+class BasicAccount < Account
+  has_extra_data
 end
 
 class BankAccount < Account

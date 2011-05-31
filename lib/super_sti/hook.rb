@@ -25,10 +25,16 @@ module SuperSTI
       # Add a reference to a data object that gets created when this is created
       has_one :data, :class_name => "#{self.name}::Data", :foreign_key => options[:foreign_key]
       before_create :get_data
+      after_save :save_data
       
       # A helper method which gets the existing data or builds a new object
       define_method :get_data do
         data || build_data
+      end
+      
+       # Makes sure data also gets saved as it's dirtiness is not automatically checked
+      define_method :save_data do
+        data.save
       end
       
       # Override respond_to? to check both this object and its data object.
