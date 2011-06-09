@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table :accounts do |t|
     t.float :balance
     t.boolean :is_approved, :null => false
+    t.string :type, :null => false
   end
   
   create_table :bank_account_data do |t|

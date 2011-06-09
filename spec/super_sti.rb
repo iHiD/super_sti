@@ -58,6 +58,22 @@ describe "Super STI models with has_extra_data models" do
     BasicAccount.approved.count.should == 1
   end
   
+  it "correctly gets parent id, not data id" do
+    ActiveRecord::Base.connection.execute("INSERT INTO basic_account_data('basic_account_id') VALUES (0)")
+    ba = BasicAccount.create!
+    ba.id.should_not == ba.data.id
+    
+    ba2 = BasicAccount.find(ba.id)
+    ba2.id.should == ba.id
+    ba2.data.id.should == ba.data.id
+    ba2.id.should_not == ba2.data.id
+    
+    ba3 = Account.find(ba.id)
+    ba3.id.should == ba.id
+    ba3.data.id.should == ba.data.id
+    ba3.id.should_not == ba3.data.id
+  end
+  
   it "saves data on updates" do
     # Setup normal bank account
     @bank_account.attributes = @valid_bank_account_attributes
