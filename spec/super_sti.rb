@@ -74,6 +74,15 @@ describe "Super STI models with has_extra_data models" do
     ba3.id.should_not == ba3.data.id
   end
   
+  it "doesn't break if extra data is deleted" do
+    ba = BasicAccount.create!
+    ActiveRecord::Base.connection.execute("DELETE FROM basic_account_data where id = #{ba.data.id}")
+    
+    ba2 = BasicAccount.find(ba.id)
+    ba2.id.should == ba.id
+    ba2.data.should be_nil
+  end
+  
   it "saves data on updates" do
     # Setup normal bank account
     @bank_account.attributes = @valid_bank_account_attributes
