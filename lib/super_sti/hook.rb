@@ -1,4 +1,7 @@
 module SuperSTI
+  
+  class DataMissingError < ::StandardError;end
+  
   module Hook
     
     ######
@@ -30,7 +33,8 @@ module SuperSTI
       # A helper method which gets the existing data or builds a new object
       define_method :get_data do
         return data if data
-        new_record?? build_data : nil
+        return build_data if new_record?
+        raise SuperSTI::DataMissingError
       end
       
        # Makes sure data also gets saved as it's dirtiness is not automatically checked
@@ -40,7 +44,11 @@ module SuperSTI
       
       # Override respond_to? to check both this object and its data object.
       define_method "respond_to?" do |sym, include_private = false|
-        super(sym, include_private) || get_data.respond_to?(sym, include_private)
+        begin
+          super(sym, include_private) || get_data.respond_to?(sym, include_private)
+        rescue SuperSTI::DataMissingError
+          false
+        end
       end
       
       # Override method_missing to check both this object and it's data object for any methods or magic functionality.

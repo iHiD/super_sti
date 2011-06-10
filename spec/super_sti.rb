@@ -74,13 +74,14 @@ describe "Super STI models with has_extra_data models" do
     ba3.id.should_not == ba3.data.id
   end
   
-  it "doesn't break if extra data is deleted" do
-    ba = BasicAccount.create!
-    ActiveRecord::Base.connection.execute("DELETE FROM basic_account_data where id = #{ba.data.id}")
+  it "if extra data is deleted, it still loads but can't load extra data" do
+    ba = BankAccount.create!(@valid_bank_account_attributes)
+    ActiveRecord::Base.connection.execute("DELETE FROM bank_account_data where id = #{ba.data.id}")
     
-    ba2 = BasicAccount.find(ba.id)
+    ba2 = BankAccount.find(ba.id)
     ba2.id.should == ba.id
-    ba2.data.should be_nil
+    ba2.data.should be_nil 
+    lambda{ba2.bank_id}.should raise_error(SuperSTI::DataMissingError)
   end
   
   it "saves data on updates" do
