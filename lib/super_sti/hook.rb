@@ -48,8 +48,8 @@ module SuperSTI
       # some magic piping that will return a result and then try the data object.
       define_method :method_missing do |sym, *args|
         begin
-          super(sym, args)
-        rescue
+          super(sym, *args)
+        rescue NoMethodError
           get_data.send(sym, *args)
         end
       end
