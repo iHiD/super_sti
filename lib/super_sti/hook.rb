@@ -29,7 +29,8 @@ module SuperSTI
       
       # A helper method which gets the existing data or builds a new object
       define_method :get_data do
-        data || build_data
+        return data if data
+        new_record?? build_data : nil
       end
       
        # Makes sure data also gets saved as it's dirtiness is not automatically checked

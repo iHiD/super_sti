@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Ruby Rails - Add has_extra_data to SDI models with clean database tables.}
   s.description = %q{Adds an add_extra_data method to ActiveRecord that invisibly includes an extra data table. Means you can use STI but keep your database clean.}
 
-  s.add_dependency "rails"
+  s.add_dependency "rails", ">= 3.1.0.rc1"
   s.add_development_dependency "rspec-rails"
   
   s.rubyforge_project = "has_extra_data"

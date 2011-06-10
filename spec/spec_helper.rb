@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(:version => 1) do
     t.boolean :is_approved, :null => false
     t.string :type, :null => false
   end
+
+  create_table :basic_account_data do |t|
+    t.integer :basic_account_id, :null => false
+  end
   
   create_table :bank_account_data do |t|
     t.integer :bank_account_id, :null => false
     t.integer :bank_id, :null => false
     t.string :account_number, :null => false
     t.string :sort_code, :null => false
-  end
-
-  create_table :basic_account_data do |t|
-    t.integer :basic_account_id, :null => false
   end
 
   create_table :credit_card_data do |t|
