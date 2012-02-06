@@ -20,7 +20,7 @@ module SuperSTI
 
       table_name = options[:table_name] || "#{self.name.underscore.gsub("/", "_")}_data"
       klass = Class.new(ActiveRecord::Base) do
-        set_table_name(table_name)
+        self.table_name = table_name
       end
       klass.class_eval &block if block_given?
       self.const_set "Data", klass
