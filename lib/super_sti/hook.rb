@@ -26,7 +26,7 @@ module SuperSTI
       self.const_set "Data", klass
   
       # Add a reference to a data object that gets created when this is created
-      has_one :data, :class_name => "#{self.name}::Data", :foreign_key => options[:foreign_key], :readonly => false, :autosave => true
+      has_one :data, :class_name => "#{self.name}::Data", :foreign_key => options[:foreign_key], :readonly => false, :autosave => true, :dependant => :destroy
       before_create :get_data
       
       # A helper method which gets the existing data or builds a new object
