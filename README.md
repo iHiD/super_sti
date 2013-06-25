@@ -31,6 +31,7 @@ Usage:
     end
 
 Classes:
+
     class Account < ActiveRecord::Base
       before_create :set_initial_balance
   
