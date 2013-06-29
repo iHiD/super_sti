@@ -3,7 +3,7 @@ Adds an has_extra_data method to ActiveRecord that invisibly includes an extra d
 Usage
 ---------
 Use in Rails 3 app. Add to bundler:
-gem "super_sti"
+gem 'super_sti', :git => "git://github.com/ihid/super_sti.git"
 
 Tests
 ---------
@@ -31,6 +31,7 @@ Usage:
     end
 
 Classes:
+
     class Account < ActiveRecord::Base
       before_create :set_initial_balance
   
