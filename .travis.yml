@@ -1,0 +1,7 @@
+nguage: ruby
+rvm:
+  - 1.9.3
+env:
+  - DB=sqlite
+script:
+  - RAILS_ENV=test bundle exec rspec
